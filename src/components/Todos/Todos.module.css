@@ -1,0 +1,41 @@
+.Todos{
+  width: 60%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.Error{
+  font-weight: bolder;
+  color: rgb(117, 0, 0);
+  letter-spacing: 1.3px;
+  padding: 1rem ;
+  border: 1px solid rgb(117, 0, 0);
+}
+
+.NewTodo{
+  display: flex;
+  margin: 10px 0;
+}
+
+.NewTodo > input{
+  flex-grow: 1;
+  padding: 0 5px;
+  margin-right: 3px;
+}
+
+.NewTodo > button{
+  background: rgb(6, 70, 133);
+  color: #fff;
+  padding: 7px 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px){
+  .Todos{
+    width: 100%;
+  }
+}
+
+

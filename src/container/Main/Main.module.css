@@ -1,0 +1,37 @@
+.Main{
+  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+}
+
+.Heading{
+  text-align: center;
+  padding: 10px 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-bottom: 1rem;
+}
+
+.Buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.Button{
+  padding: 7px 14px;
+  outline: none;
+  border: none;
+  background: rgb(23, 116, 198);
+  color: #fff;
+  font-size: 1.3rem;
+  margin: 1rem;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 1px 1px 10px -5px #000;
+}
+
+.Button:hover{
+  box-shadow: 1px 1px 10px -4px #000;
+  background: rgb(57, 143, 219);
+}

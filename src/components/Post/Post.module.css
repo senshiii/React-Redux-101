@@ -1,0 +1,22 @@
+.Post{
+  padding: 1rem;
+  border: 1px solid #000;
+  background: rgb(172, 223, 255);
+  margin: 10px 0;
+  box-shadow: 0 0 8px -4px #000;
+}
+
+.Post > h3{
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.Post > button{
+  background: red;
+  color: #fff;
+  border: 1px solid #1d1d1d;
+  outline: none;
+  padding: 5px 7px;
+  margin: 5px 0;
+  cursor: pointer;
+}

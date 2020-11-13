@@ -1,0 +1,46 @@
+.Posts {
+  width: 60%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.Error {
+  font-weight: bolder;
+  color: rgb(117, 0, 0);
+  letter-spacing: 1.3px;
+  padding: 1rem;
+  border: 1px solid rgb(117, 0, 0);
+}
+
+.NewPost {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.NewPost > input {
+  flex-grow: 1;
+  padding: 5px 10px;
+  margin-right: 3px;
+  margin: 10px 0;
+}
+
+.NewPost > textarea{
+  padding: 10px;
+}
+
+.NewPost > button {
+  background: rgb(6, 70, 133);
+  color: #fff;
+  padding: 7px 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .Todos {
+    width: 100%;
+  }
+}

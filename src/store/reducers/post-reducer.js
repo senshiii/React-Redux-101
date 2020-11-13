@@ -23,7 +23,7 @@ const postReducer = (state = initState, action) => {
         loading: false, // SET THE LOADING AS FALSE AS LOAD OPERATION HAS SUCCEEDED
       };
 
-    case types.LOAD_POSTS_ERROR:
+    case types.POST_ERROR:
       return {
         ...state,
         error: action.error, // SET THE TYPE AND DESCRIPTION OF THE ERROR TO BE DISPLAYED
@@ -32,7 +32,7 @@ const postReducer = (state = initState, action) => {
 
     case types.ADD_POST:
       let oldPostsBeforeAdding = JSON.parse(JSON.stringify(state.posts)); // CREATE A NEW REFERENCE BY DEEP CLONE OF THE STATE WE WANT TO CHANGE
-      const newPosts = [action.post]; // ADDING THE NEW POST TO THE TOP I.E. AS THE FIRST POST
+      const newPosts = [action.post]; // ADDING THE NEW POST TO THE TOP I.E. AS THE MOST RECENT POST
       oldPostsBeforeAdding.forEach((oldPost) => newPosts.push(oldPost)); // ADDING OLD POSTS;
       return {
         ...state,
@@ -41,8 +41,8 @@ const postReducer = (state = initState, action) => {
 
     case types.DELETE_POST:
       let oldPostsBeforeDeleting = JSON.parse(JSON.stringify(state.posts)); // CREATE A NEW REFERENCE BY DEEP CLONE OF THE STATE WE WANT TO CHANGE
-      const remainingPosts = oldPostsBeforeDeleting.map(
-        (post) => post.id !== action.post.id
+      const remainingPosts = oldPostsBeforeDeleting.filter(
+        (post) => post.id !== action.id
       ); // FILTERING OUT THE DELETED POST OF THE OLD POSTS
       return {
         ...state,
