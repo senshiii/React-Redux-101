@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import actions from "../../store/actions";
@@ -8,55 +8,41 @@ import classes from "./Main.module.css";
 import Todos from "../../components/Todos/Todos";
 import Posts from "../../components/Posts/Posts";
 
-class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tab: "POSTS",
-    };
-  }
-
-  render() {
-    return (
-      <div className={classes.Main}>
-        <h1 className={classes.Heading}>My Redux App</h1>
-        <div className={classes.Buttons}>
-          <button
-            onClick={() => this.setState({ tab: "POSTS" })}
-            className={classes.Button}
-          >
-            Show Posts
-          </button>
-          <button
-            onClick={() => this.setState({ tab: "TODOS" })}
-            className={classes.Button}
-          >
-            Show Todos
-          </button>
-        </div>
-        {this.state.tab === "POSTS" ? (
-          <Posts
-            posts={this.props.posts}
-            loading={this.props.loadingPosts}
-            error={this.props.postError}
-            loadPosts={this.props.loadPosts}
-            addPost={this.props.addPost}
-            deletePost={this.props.deletePost}
-          />
-        ) : (
-          <Todos
-            todos={this.props.todos}
-            loading={this.props.loadingTodos}
-            error={this.props.todoError}
-            addTodo={this.props.addTodo}
-            loadTodos={this.props.loadTodos}
-            deleteTodo={this.props.deleteTodo}
-          />
-        )}
+const Main = (props) => {
+  const [tab, setTab] = useState("POSTS");
+  return (
+    <div className={classes.Main}>
+      <h1 className={classes.Heading}>My Redux App</h1>
+      <div className={classes.Buttons}>
+        <button onClick={() => setTab("POSTS")} className={classes.Button}>
+          Show Posts
+        </button>
+        <button onClick={() => setTab("TODOS")} className={classes.Button}>
+          Show Todos
+        </button>
       </div>
-    );
-  }
-}
+      {tab === "POSTS" ? (
+        <Posts
+          posts={props.posts}
+          loading={props.loadingPosts}
+          error={props.postError}
+          loadPosts={props.loadPosts}
+          addPost={props.addPost}
+          deletePost={props.deletePost}
+        />
+      ) : (
+        <Todos
+          todos={props.todos}
+          loading={props.loadingTodos}
+          error={props.todoError}
+          addTodo={props.addTodo}
+          loadTodos={props.loadTodos}
+          deleteTodo={props.deleteTodo}
+        />
+      )}
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => ({
   posts: state.posts.posts,
