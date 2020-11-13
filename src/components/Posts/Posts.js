@@ -51,7 +51,8 @@ const Posts = (props) => {
         <button
           onClick={() => {
             props.addPost(title, body);
-            this.setState({ title: "", body: "" });
+            setTitle("");
+            setBody("");
           }}
         >
           Add Post
